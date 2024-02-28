@@ -1,5 +1,5 @@
 const std = @import ("std");
-const pkg = .{ .name = "vulkan.zig", .version = "1.3.277" };
+const pkg = .{ .name = "vulkan.zig", .version = "1.3.277", };
 
 fn exec (builder: *std.Build, argv: [] const [] const u8) !void
 {
@@ -20,9 +20,9 @@ fn exec (builder: *std.Build, argv: [] const [] const u8) !void
 
   const term = try child.wait ();
 
-  if (stdout.items.len > 0) std.debug.print ("{s}", .{ stdout.items });
-  if (stderr.items.len > 0 and !std.meta.eql (term, std.ChildProcess.Term { .Exited = 0 })) std.debug.print ("\x1b[31m{s}\x1b[0m", .{ stderr.items });
-  try std.testing.expectEqual (term, std.ChildProcess.Term { .Exited = 0 });
+  if (stdout.items.len > 0) std.debug.print ("{s}", .{ stdout.items, });
+  if (stderr.items.len > 0 and !std.meta.eql (term, std.ChildProcess.Term { .Exited = 0, })) std.debug.print ("\x1b[31m{s}\x1b[0m", .{ stderr.items, });
+  try std.testing.expectEqual (term, std.ChildProcess.Term { .Exited = 0, });
 }
 
 fn update (builder: *std.Build) !void
@@ -38,10 +38,10 @@ fn update (builder: *std.Build) !void
     }
   };
 
-  try exec (builder, &[_][] const u8 { "git", "clone", "https://github.com/KhronosGroup/Vulkan-Headers.git", vulkan_path });
-  try exec (builder, &[_][] const u8 { "git", "-C", vulkan_path, "checkout", "v" ++ pkg.version });
+  try exec (builder, &[_][] const u8 { "git", "clone", "https://github.com/KhronosGroup/Vulkan-Headers.git", vulkan_path, });
+  try exec (builder, &[_][] const u8 { "git", "-C", vulkan_path, "checkout", "v" ++ pkg.version, });
 
-  var vulkan = try std.fs.openDirAbsolute (vulkan_path, .{ .iterate = true });
+  var vulkan = try std.fs.openDirAbsolute (vulkan_path, .{ .iterate = true, });
   defer vulkan.close ();
 
   var it = vulkan.iterate ();
@@ -67,7 +67,7 @@ pub fn build (builder: *std.Build) !void
   });
 
   const include_path = try builder.build_root.join (builder.allocator, &.{ "vulkan", "include", });
-  var include = try std.fs.openDirAbsolute (include_path, .{ .iterate = true });
+  var include = try std.fs.openDirAbsolute (include_path, .{ .iterate = true, });
   defer include.close ();
 
   var it = include.iterate ();
