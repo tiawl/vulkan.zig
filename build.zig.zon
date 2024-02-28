@@ -1,0 +1,10 @@
+.{
+  .name = "vulkan.zig",
+  .version = "1.3.277",
+  .minimum_zig_version = "0.11.0",
+  .paths = .{
+    "build.zig",
+    "build.zig.zon",
+    "include/",
+  },
+}
