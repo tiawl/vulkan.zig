@@ -9,7 +9,7 @@
   },
   .dependencies = .{
     .toolbox = .{
-      .path = "toolbox",
+      .path = "./toolbox",
     },
   },
 }
