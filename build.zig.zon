@@ -5,7 +5,11 @@
   .paths = .{
     "build.zig",
     "build.zig.zon",
-    "toolbox",
     "vulkan",
+  },
+  .dependencies = .{
+    .toolbox = .{
+      .path = "toolbox",
+    },
   },
 }
