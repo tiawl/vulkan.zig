@@ -1,5 +1,6 @@
 const std = @import ("std");
-const toolbox = @import ("toolbox/toolbox.zig");
+const toolbox = @import ("toolbox").toolbox;
+//const toolbox = @import ("toolbox/toolbox.zig");
 const pkg = .{ .name = "vulkan.zig", .version = "1.3.277", };
 
 fn update (builder: *std.Build) !void
