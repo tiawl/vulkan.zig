@@ -1,6 +1,5 @@
 const std = @import ("std");
-const toolbox = @import ("toolbox").toolbox;
-//const toolbox = @import ("toolbox/toolbox.zig");
+const toolbox = @import ("toolbox");
 const pkg = .{ .name = "vulkan.zig", .version = "1.3.277", };
 
 fn update (builder: *std.Build) !void
@@ -16,8 +15,8 @@ fn update (builder: *std.Build) !void
     }
   };
 
-  try toolbox.exec (builder, .{ .argv = &[_][] const u8 { "git", "clone", "https://github.com/KhronosGroup/Vulkan-Headers.git", vulkan_path, }, });
-  try toolbox.exec (builder, .{ .argv = &[_][] const u8 { "git", "-C", vulkan_path, "checkout", "v" ++ pkg.version, }, });
+  try toolbox.run (builder, .{ .argv = &[_][] const u8 { "git", "clone", "https://github.com/KhronosGroup/Vulkan-Headers.git", vulkan_path, }, });
+  try toolbox.run (builder, .{ .argv = &[_][] const u8 { "git", "-C", vulkan_path, "checkout", "v" ++ pkg.version, }, });
 
   var vulkan = try std.fs.openDirAbsolute (vulkan_path, .{ .iterate = true, });
   defer vulkan.close ();
