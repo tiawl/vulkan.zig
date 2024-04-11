@@ -53,7 +53,7 @@ pub fn build (builder: *std.Build) !void
     if (entry.kind == .directory)
     {
       std.debug.print ("[vulkan headers dir] {s}\n", .{ try builder.build_root.join (builder.allocator, &.{ "vulkan", "include", entry.name, }), });
-      lib.installHeadersDirectory (try std.fs.path.join (builder.allocator, &.{ "vulkan", "include", entry.name, }), entry.name);
+      lib.installHeadersDirectory (.{ .path = try std.fs.path.join (builder.allocator, &.{ "vulkan", "include", entry.name, }), }, entry.name, .{ .include_extensions = &.{ ".h", ".hpp", }, });
     }
   }
 
