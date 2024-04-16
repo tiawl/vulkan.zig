@@ -18,9 +18,9 @@ fn update (builder: *std.Build, vulkan_path: [] const u8) !void
     }
   };
 
-  try toolbox.run (builder, .{ .argv = &[_][] const u8 { "git", "clone",
-    "--branch", "v" ++ pkg.version, "--depth", "1",
-    "https://github.com/KhronosGroup/Vulkan-Headers.git", tmp_path, }, });
+  try toolbox.clone (builder,
+    "https://github.com/KhronosGroup/Vulkan-Headers.git", "v" ++ pkg.version,
+    tmp_path);
 
   var include_dir = try std.fs.openDirAbsolute (include_path,
     .{ .iterate = true, });
@@ -74,13 +74,8 @@ pub fn build (builder: *std.Build) !void
   {
     if (entry.kind == .directory)
     {
-      std.debug.print ("[vulkan headers dir] {s}\n",
-        .{ try builder.build_root.join (builder.allocator,
-          &.{ "vulkan", entry.name, }), });
-      lib.installHeadersDirectory (
-        .{ .path = try std.fs.path.join (builder.allocator,
-          &.{ "vulkan", entry.name, }), }, entry.name,
-            .{ .include_extensions = &.{ ".h", ".hpp", }, });
+      toolbox.addHeader (lib, try std.fs.path.join (builder.allocator,
+        &.{ vulkan_path, entry.name, }), entry.name, &.{ ".h", ".hpp", });
     }
   }
 
