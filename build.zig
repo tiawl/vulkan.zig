@@ -31,7 +31,7 @@ fn update (builder: *std.Build, vulkan_path: [] const u8) !void
 
   try toolbox.make (vulkan_path);
 
-  while (try walker.next ()) |entry|
+  while (try walker.next ()) |*entry|
   {
     const dest = try std.fs.path.join (builder.allocator,
       &.{ vulkan_path, entry.path, });
