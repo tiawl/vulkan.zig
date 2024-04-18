@@ -1,6 +1,55 @@
 const std = @import ("std");
 const toolbox = @import ("toolbox");
-const pkg = .{ .name = "vulkan.zig", .version = "1.3.277", };
+
+const isSubmodule = toolbox.isSubmodule;
+const builtin = @import ("builtin");
+fn writeZon (builder: *std.Build, name: [] const u8) !void
+{
+  var buffer = std.ArrayList (u8).init (builder.allocator);
+  const writer = buffer.writer ();
+
+  try writer.print (".{c}\n", .{ '{', });
+  try writer.print (".name = \"{s}\",\n", .{ name, });
+  try writer.print (".version = \"1.0.0\",\n", .{});
+  try writer.print (".minimum_zig_version = \"{}.{}.0\",\n",
+    .{ builtin.zig_version.major, builtin.zig_version.minor, });
+
+  try writer.print (".paths = .{c}\n", .{ '{', });
+
+  var build_dir = try builder.build_root.handle.openDir (".",
+    .{ .iterate = true, });
+  defer build_dir.close ();
+
+  var it = build_dir.iterate ();
+  while (try it.next ()) |*entry|
+  {
+    if (!std.mem.startsWith (u8, entry.name, ".") and
+      !std.mem.eql (u8, entry.name, "zig-cache") and
+      !std.mem.eql (u8, entry.name, "zig-out") and
+      !try isSubmodule (builder, entry.name))
+        try writer.print ("\"{s}\",\n", .{ entry.name, });
+  }
+
+  try writer.print ("{c},\n", .{ '}', });
+
+  //try writer.print (".dependencies = .{c}\n", .{ '{', });
+
+  //try writer.print ("{c},\n", .{ '}', });
+
+  try writer.print ("{c}\n", .{ '}', });
+
+  try buffer.append (0);
+  const source = buffer.items [0 .. buffer.items.len - 1 :0];
+
+  const validated = try std.zig.Ast.parse (builder.allocator, source, .zon);
+  const formatted = try validated.render (builder.allocator);
+
+  std.debug.print ("{s}\n", .{formatted});
+  //try builder.build_root.handle.deleteFile ("build.zig.zon");
+  //try builder.build_root.handle.writeFile ("build.zig.zon", formatted);
+
+  std.process.exit (0);
+}
 
 fn update (builder: *std.Build, vulkan_path: [] const u8) !void
 {
@@ -19,8 +68,8 @@ fn update (builder: *std.Build, vulkan_path: [] const u8) !void
   };
 
   try toolbox.clone (builder,
-    "https://github.com/KhronosGroup/Vulkan-Headers.git", "v" ++ pkg.version,
-    tmp_path);
+    "https://github.com/KhronosGroup/Vulkan-Headers.git",
+    "vulkan", tmp_path);
 
   var include_dir = try std.fs.openDirAbsolute (include_path,
     .{ .iterate = true, });
@@ -55,6 +104,8 @@ pub fn build (builder: *std.Build) !void
   const vulkan_path =
     try builder.build_root.join (builder.allocator, &.{ "vulkan", });
 
+  if (builder.option (bool, "zon", "Update build.zig.zon") orelse false)
+    try writeZon (builder, "vulkan.zig");
   if (builder.option (bool, "update", "Update binding") orelse false)
     try update (builder, vulkan_path);
 

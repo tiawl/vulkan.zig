@@ -1,6 +1,6 @@
 .{
   .name = "vulkan.zig",
-  .version = "1.3.277",
+  .version = "1.0.0",
   .minimum_zig_version = "0.12.0",
   .paths = .{
     "build.zig",
@@ -9,8 +9,8 @@
   },
   .dependencies = .{
     .toolbox = .{
-      .url = "https://github.com/tiawl/toolbox/archive/refs/tags/1.4.0.tar.gz",
-      .hash = "1220a61c8b7ea945d67a93e09a7dcbce328e7e55639a3ea6654a1402995ddcb8b2f6",
+      .url = "https://github.com/tiawl/toolbox/archive/refs/tags/1.6.1.tar.gz",
+      .hash = "1220ad8c4519b787b35112454ad8d87ce9765c2e8ba1dce8aa8242cce70a966ca403",
     },
   },
 }
