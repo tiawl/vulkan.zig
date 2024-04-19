@@ -58,7 +58,7 @@ jobs:
       id: diff
       shell: bash
       run: |
-        printf 'len=%s\n' "$(git diff HEAD..origin/trunk --name-only | wc -l)" >> ${GITHUB_OUTPUT}
+        printf 'len=%s\n' "$(git diff HEAD --name-only | wc -l)" >> ${GITHUB_OUTPUT}
 
     - name: Create Pull Request
       if: ${{ steps.check.outputs.labeled == '0' && steps.fetch.conclusion == 'success' && steps.diff.outputs.len != '0' }}
