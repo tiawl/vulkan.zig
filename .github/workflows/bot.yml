@@ -8,8 +8,9 @@ on:
 jobs:
   update:
     permissions:
-      pull-requests: write
       contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-latest
     env:
       gh_label: 'update'
