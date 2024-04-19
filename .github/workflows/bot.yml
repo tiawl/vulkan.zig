@@ -12,8 +12,6 @@ jobs:
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest
-    env:
-      gh_label: 'update'
     steps:
     - uses: actions/checkout@v4
     - uses: tiawl/spaceporn-dep-action-bot@v1
