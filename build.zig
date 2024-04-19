@@ -58,7 +58,7 @@ pub fn build (builder: *std.Build) !void
     "Update .versions folder and build.zig.zon then stop execution")
       orelse false;
 
-  var dependencies = try toolbox.Dependencies.init (builder,
+  const dependencies = try toolbox.Dependencies.init (builder,
   .{
      .toolbox = .{
        .name = "tiawl/toolbox",
