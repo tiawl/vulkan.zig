@@ -905,15 +905,14 @@ export namespace VULKAN_HPP_NAMESPACE
 #  endif /*VK_USE_PLATFORM_WIN32_KHR*/
 
   using VULKAN_HPP_NAMESPACE::CompressionExhaustedEXTError;
-  using VULKAN_HPP_NAMESPACE::IncompatibleShaderBinaryEXTError;
   using VULKAN_HPP_NAMESPACE::InvalidVideoStdParametersKHRError;
 #endif /*VULKAN_HPP_NO_EXCEPTIONS*/
 
-  using VULKAN_HPP_NAMESPACE::createResultValueType;
-  using VULKAN_HPP_NAMESPACE::ignore;
-  using VULKAN_HPP_NAMESPACE::resultCheck;
   using VULKAN_HPP_NAMESPACE::ResultValue;
   using VULKAN_HPP_NAMESPACE::ResultValueType;
+  using VULKAN_HPP_NAMESPACE::detail::createResultValueType;
+  using VULKAN_HPP_NAMESPACE::detail::ignore;
+  using VULKAN_HPP_NAMESPACE::detail::resultCheck;
 
   //===========================
   //=== CONSTEXPR CONSTANTs ===
@@ -1873,6 +1872,10 @@ export namespace VULKAN_HPP_NAMESPACE
   using VULKAN_HPP_NAMESPACE::KHRMapMemory2ExtensionName;
   using VULKAN_HPP_NAMESPACE::KHRMapMemory2SpecVersion;
 
+  //=== VK_EXT_map_memory_placed ===
+  using VULKAN_HPP_NAMESPACE::EXTMapMemoryPlacedExtensionName;
+  using VULKAN_HPP_NAMESPACE::EXTMapMemoryPlacedSpecVersion;
+
   //=== VK_EXT_shader_atomic_float2 ===
   using VULKAN_HPP_NAMESPACE::EXTShaderAtomicFloat2ExtensionName;
   using VULKAN_HPP_NAMESPACE::EXTShaderAtomicFloat2SpecVersion;
@@ -2490,6 +2493,18 @@ export namespace VULKAN_HPP_NAMESPACE
   //=== VK_NV_descriptor_pool_overallocation ===
   using VULKAN_HPP_NAMESPACE::NVDescriptorPoolOverallocationExtensionName;
   using VULKAN_HPP_NAMESPACE::NVDescriptorPoolOverallocationSpecVersion;
+
+  //=== VK_NV_raw_access_chains ===
+  using VULKAN_HPP_NAMESPACE::NVRawAccessChainsExtensionName;
+  using VULKAN_HPP_NAMESPACE::NVRawAccessChainsSpecVersion;
+
+  //=== VK_NV_shader_atomic_float16_vector ===
+  using VULKAN_HPP_NAMESPACE::NVShaderAtomicFloat16VectorExtensionName;
+  using VULKAN_HPP_NAMESPACE::NVShaderAtomicFloat16VectorSpecVersion;
+
+  //=== VK_NV_ray_tracing_validation ===
+  using VULKAN_HPP_NAMESPACE::NVRayTracingValidationExtensionName;
+  using VULKAN_HPP_NAMESPACE::NVRayTracingValidationSpecVersion;
 
   //========================
   //=== CONSTEXPR VALUEs ===
@@ -3671,6 +3686,11 @@ export namespace VULKAN_HPP_NAMESPACE
   using VULKAN_HPP_NAMESPACE::MemoryMapInfoKHR;
   using VULKAN_HPP_NAMESPACE::MemoryUnmapInfoKHR;
 
+  //=== VK_EXT_map_memory_placed ===
+  using VULKAN_HPP_NAMESPACE::MemoryMapPlacedInfoEXT;
+  using VULKAN_HPP_NAMESPACE::PhysicalDeviceMapMemoryPlacedFeaturesEXT;
+  using VULKAN_HPP_NAMESPACE::PhysicalDeviceMapMemoryPlacedPropertiesEXT;
+
   //=== VK_EXT_shader_atomic_float2 ===
   using VULKAN_HPP_NAMESPACE::PhysicalDeviceShaderAtomicFloat2FeaturesEXT;
 
@@ -4322,6 +4342,15 @@ export namespace VULKAN_HPP_NAMESPACE
 
   //=== VK_NV_descriptor_pool_overallocation ===
   using VULKAN_HPP_NAMESPACE::PhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
+
+  //=== VK_NV_raw_access_chains ===
+  using VULKAN_HPP_NAMESPACE::PhysicalDeviceRawAccessChainsFeaturesNV;
+
+  //=== VK_NV_shader_atomic_float16_vector ===
+  using VULKAN_HPP_NAMESPACE::PhysicalDeviceShaderAtomicFloat16VectorFeaturesNV;
+
+  //=== VK_NV_ray_tracing_validation ===
+  using VULKAN_HPP_NAMESPACE::PhysicalDeviceRayTracingValidationFeaturesNV;
 
   //===============
   //=== HANDLEs ===
