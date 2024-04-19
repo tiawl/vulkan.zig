@@ -3,12 +3,9 @@
     .version = "1.0.0",
     .minimum_zig_version = "0.12.0",
     .paths = .{
-        "curl_github_commit",
-        "build.zig.zon",
-        "curl_github_tag",
-        "build.zig",
-        "curl_gitlab_tag",
         "vulkan",
+        "build.zig.zon",
+        "build.zig",
     },
     .dependencies = .{
         .toolbox = .{
