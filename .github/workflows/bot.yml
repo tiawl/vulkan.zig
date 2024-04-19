@@ -1,0 +1,72 @@
+name: bot
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      gh_label: 'update'
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check
+      id: check
+      shell: bash
+      run: |
+        printf 'labeled=%s\n' "$(( "$(gh pr list --label "${gh_label}" --state open --json number | jq length)" +
+                                   "$(gh issue list --label "${gh_label}" --state open --json number | jq length)" ))" >> ${GITHUB_OUTPUT}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Setup Zig
+      if: ${{ steps.check.outputs.labeled == '0' }}
+      uses: goto-bus-stop/setup-zig@v2.2.0
+      with:
+        version: 0.12.0-dev.3630+215de3ee6
+
+    - name: Setup git user information
+      if: ${{ steps.check.outputs.labeled == '0' }}
+      shell: bash
+      run: |
+        git config user.name "GitHub Actions[bot]"
+        git config user.email "<>"
+        git checkout -b bot
+
+    - name: Fetch
+      if: ${{ steps.check.outputs.labeled == '0' }}
+      id: fetch
+      shell: bash
+      run: |
+        zig build -Dfetch
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Create Issue
+      if: ${{ failure() && steps.fetch.conclusion == 'failure' && steps.check.outputs.labeled == '0' }}
+      shell: bash
+      run: |
+        gh issue create --title "The Github workflow ${GITHUB_RUN_NUMBER} failed" --body "The fetch step failed. This zig option needs a fix." --label "${gh_label}" --assignee "${GITHUB_REPOSITORY_OWNER}"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+
+    - name: Diff
+      if: ${{ steps.check.outputs.labeled == '0' && steps.fetch.conclusion == 'success' }}
+      id: diff
+      shell: bash
+      run: |
+        printf 'len=%s\n' "$(git diff HEAD..origin/trunk --name-only | wc -l)" >> ${GITHUB_OUTPUT}
+
+    - name: Create Pull Request
+      if: ${{ steps.check.outputs.labeled == '0' && steps.fetch.conclusion == 'success' && steps.diff.outputs.len != '0' }}
+      shell: bash
+      run: |
+        git add -A
+        git commit -m 'Update dependencies'
+        git push --force --set-upstream origin bot
+        gh pr create --base trunk -f --label "${gh_label}" --reviewer "${GITHUB_REPOSITORY_OWNER}"
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
