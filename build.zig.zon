@@ -9,7 +9,7 @@
     },
     .dependencies = .{
         .toolbox = .{
-            .url = "https://github.com/tiawl/toolbox/archive/1.8.0.tar.gz",
+            .url = "https://github.com/tiawl/toolbox/archive/refs/tags/1.8.0.tar.gz",
             .hash = "12200af0f781a5043d325b5a1cd5cb036851fc0b28e3c6e9fba5e4ba7eb68c07406a",
         },
     },
