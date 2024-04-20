@@ -57,7 +57,7 @@ pub fn build (builder: *std.Build) !void
     "Update .versions folder and build.zig.zon then stop execution")
       orelse false;
 
-  const dependencies = try toolbox.Dependencies.init (builder,
+  var dependencies = try toolbox.Dependencies.init (builder,
   .{
      .toolbox = .{
        .name = "tiawl/toolbox",
@@ -68,9 +68,9 @@ pub fn build (builder: *std.Build) !void
         .name = "KhronosGroup/Vulkan-Headers",
         .api = toolbox.Repository.API.github,
      },
-   }, fetch_option);
+   });
 
-  if (fetch_option) try toolbox.fetch (builder, "vulkan.zig", &dependencies);
+  if (fetch_option) try dependencies.fetch (builder, "vulkan.zig");
   if (builder.option (bool, "update", "Update binding") orelse false)
     try update (builder, vulkan_path, &dependencies);
 
