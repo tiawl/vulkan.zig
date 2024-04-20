@@ -18,8 +18,7 @@ fn update (builder: *std.Build, vulkan_path: [] const u8,
     }
   };
 
-  try toolbox.clone (builder, dependencies.clone.get ("vulkan").?.url,
-    "vulkan", tmp_path);
+  try dependencies.clone (builder, "vulkan", tmp_path);
 
   var include_dir = try std.fs.openDirAbsolute (include_path,
     .{ .iterate = true, });
