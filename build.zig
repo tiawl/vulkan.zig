@@ -43,6 +43,8 @@ fn update (builder: *std.Build, vulkan_path: [] const u8,
   }
 
   try std.fs.deleteTreeAbsolute (tmp_path);
+
+  try toolbox.clean (builder, &.{ "vulkan", }, &.{});
 }
 
 pub fn build (builder: *std.Build) !void
