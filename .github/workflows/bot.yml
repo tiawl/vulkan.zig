@@ -13,7 +13,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/${{ github.repository_owner }}/spaceporn-dep_ubuntu-24.04:0.12.0-dev.3630.215de3ee6
+      image: ghcr.io/${{ github.repository_owner }}/spaceporn-dep_ubuntu-24.04:zig-0.12.0-dev.3630.215de3ee6
       credentials:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
