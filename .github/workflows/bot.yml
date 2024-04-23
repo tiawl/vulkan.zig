@@ -18,4 +18,4 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
     steps:
-    - uses: ${{ github.repository_owner }}/spaceporn-dep-action-bot@v1
+    - uses: tiawl/spaceporn-dep-action-bot@v1
