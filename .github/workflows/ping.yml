@@ -7,8 +7,8 @@ on:
 
 jobs:
   ping:
-    permissions: write-all
-      #contents: write
+    permissions:
+      contents: write
     strategy:
       matrix:
         repo:
@@ -21,3 +21,4 @@ jobs:
         repository_name: "${{ github.event.repository.name }}"
         user: "${{ matrix.repo }}.zig"
         tag: "${{ github.ref_name }}"
+        token: "${{ github.token }}"
