@@ -1,0 +1,21 @@
+name: cd ping
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  ping:
+    strategy:
+      matrix:
+        repo:
+          - glfw
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: tiawl/spaceporn-dep-action-cd-ping@v1
+      with:
+        repository_name: "${{ github.event.repository.name }}"
+        user: "${{ matrix.repo }}.zig"
+        tag: "${{ github.ref_name }}"
