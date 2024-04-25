@@ -21,4 +21,4 @@ jobs:
         repository_name: "${{ github.event.repository.name }}"
         user: "${{ matrix.repo }}.zig"
         tag: "${{ github.ref_name }}"
-        token: "${{ github.token }}"
+        token: "${{ secrets.PAT }}"
