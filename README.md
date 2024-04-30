@@ -7,7 +7,7 @@ This is a fork of [hexops/vulkan-headers](https://github.com/hexops/vulkan-heade
 The intention under this fork is the same as hexops had when they forked [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers): package the headers for Zig. So:
 * unnecessary files have been deleted,
 * the build system has been replaced with `build.zig`.
-with these subtle differences for maintainability tasks:
+However this repository has subtle differences for maintainability tasks:
 * no shell scripting,
 * a cron is triggered every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) and to update this repository if a new release is available.
 
