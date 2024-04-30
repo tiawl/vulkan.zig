@@ -11,12 +11,15 @@ with these subtle differences for maintainability tasks:
 * no shell scripting,
 * a cron is triggered every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) and to update this repository if a new release is available.
 
+You can find the repository version used here:
+* [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
+
 ## CICD reminder
 
 These repositories are automatically updated when a new release is available:
 * [tiawl/glfw.zig](https://github.com/tiawl/glfw.zig)
 
-This repository is automatically updated when a new release is available from those repositories:
+This repository is automatically updated when a new release is available from these repositories:
 * [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers)
 * [tiawl/toolbox](https://github.com/tiawl/toolbox)
 * [tiawl/spaceporn-dep-action-bot](https://github.com/tiawl/spaceporn-dep-action-bot)
