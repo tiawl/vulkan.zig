@@ -4,12 +4,12 @@ This is a fork of [hexops/vulkan-headers](https://github.com/hexops/vulkan-heade
 
 ## Why this forkception ?
 
-The intention under this fork is the same as hexops had when they forked [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers): package the headers for Zig. So:
-* unnecessary files have been deleted,
-* the build system has been replaced with `build.zig`.
+The intention under this fork is the same as hexops had when they forked [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers): package the headers for @ziglang. So:
+* Unnecessary files have been deleted,
+* The build system has been replaced with `build.zig`.
 However this repository has subtle differences for maintainability tasks:
-* no shell scripting,
-* a cron is triggered every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) and to update this repository if a new release is available.
+* No shell scripting,
+* A cron runs every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers). Then it updates this repository if a new release is available.
 
 You can find the repository version used here:
 * [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
