@@ -59,12 +59,12 @@ pub fn build (builder: *std.Build) !void
   .{
      .toolbox = .{
        .name = "tiawl/toolbox",
-       .api = toolbox.Repository.API.github,
+       .host = toolbox.Repository.Host.github,
      },
    }, .{
       .vulkan = .{
         .name = "KhronosGroup/Vulkan-Headers",
-        .api = toolbox.Repository.API.github,
+        .host = toolbox.Repository.Host.github,
      },
    });
 
