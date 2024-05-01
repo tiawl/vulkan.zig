@@ -4,8 +4,10 @@
     .minimum_zig_version = "0.12.0",
     .paths = .{
         "vulkan",
+        "README.md",
         "build.zig.zon",
         "build.zig",
+        "LICENSE.md",
     },
     .dependencies = .{
         .toolbox = .{
