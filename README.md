@@ -11,7 +11,7 @@ However this repository has subtle differences for maintainability tasks:
 * No shell scripting,
 * A cron runs every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers). Then it updates this repository if a new release is available.
 
-You can find the repository version used here:
+Here the repositories' version used by this fork:
 * [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
 
 ## CICD reminder
