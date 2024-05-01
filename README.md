@@ -1,15 +1,15 @@
 # vulkan.zig
 
-This is a fork of [hexops/vulkan-headers](https://github.com/hexops/vulkan-headers) which is itself a fork of [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers).
+This is a fork of [hexops/vulkan-headers][1] which is itself a fork of [KhronosGroup/Vulkan-Headers][2].
 
 ## Why this forkception ?
 
-The intention under this fork is the same as hexops had when they forked [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers): package the headers for @ziglang. So:
+The intention under this fork is the same as [hexops][10] had when they forked [KhronosGroup/Vulkan-Headers][2]: package the headers for [Zig][3]. So:
 * Unnecessary files have been deleted,
 * The build system has been replaced with `build.zig`.
 However this repository has subtle differences for maintainability tasks:
 * No shell scripting,
-* A cron runs every day to check [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers). Then it updates this repository if a new release is available.
+* A cron runs every day to check [KhronosGroup/Vulkan-Headers][2]. Then it updates this repository if a new release is available.
 
 Here the repositories' version used by this fork:
 * [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
@@ -17,15 +17,15 @@ Here the repositories' version used by this fork:
 ## CICD reminder
 
 These repositories are automatically updated when a new release is available:
-* [tiawl/glfw.zig](https://github.com/tiawl/glfw.zig)
+* [tiawl/glfw.zig][4]
 
 This repository is automatically updated when a new release is available from these repositories:
-* [KhronosGroup/Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers)
-* [tiawl/toolbox](https://github.com/tiawl/toolbox)
-* [tiawl/spaceporn-action-bot](https://github.com/tiawl/spaceporn-action-bot)
-* [tiawl/spaceporn-action-ci](https://github.com/tiawl/spaceporn-action-ci)
-* [tiawl/spaceporn-action-cd-ping](https://github.com/tiawl/spaceporn-action-cd-ping)
-* [tiawl/spaceporn-action-cd-pong](https://github.com/tiawl/spaceporn-action-cd-pong)
+* [KhronosGroup/Vulkan-Headers][2]
+* [tiawl/toolbox][5]
+* [tiawl/spaceporn-action-bot][6]
+* [tiawl/spaceporn-action-ci][7]
+* [tiawl/spaceporn-action-cd-ping][8]
+* [tiawl/spaceporn-action-cd-pong][9]
 
 ## `zig build` options
 
@@ -38,3 +38,14 @@ These additional options have been implemented for maintainability tasks:
 ## License
 
 The unprotected parts of this repository are under MIT License. For everything else, see with their respective owners.
+
+[1]:https://github.com/hexops/vulkan-headers
+[2]:https://github.com/KhronosGroup/Vulkan-Headers
+[3]:https://github.com/ziglang/zig
+[4]:https://github.com/tiawl/glfw.zig
+[5]:https://github.com/tiawl/toolbox
+[6]:https://github.com/tiawl/spaceporn-action-bot
+[7]:https://github.com/tiawl/spaceporn-action-ci
+[8]:https://github.com/tiawl/spaceporn-action-cd-ping
+[9]:https://github.com/tiawl/spaceporn-action-cd-pong
+[10]:https://github.com/hexops
