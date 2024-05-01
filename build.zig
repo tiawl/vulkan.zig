@@ -56,6 +56,7 @@ pub fn build (builder: *std.Build) !void
     try builder.build_root.join (builder.allocator, &.{ "vulkan", });
 
   const dependencies = try toolbox.Dependencies.init (builder, "vulkan.zig",
+  &.{ "vulkan", },
   .{
      .toolbox = .{
        .name = "tiawl/toolbox",
