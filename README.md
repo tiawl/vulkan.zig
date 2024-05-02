@@ -11,6 +11,14 @@ However this repository has subtle differences for maintainability tasks:
 * No shell scripting,
 * A cron runs every day to check [KhronosGroup/Vulkan-Headers][2]. Then it updates this repository if a new release is available.
 
+## How to use it
+
+The current usage of this repository is centered around [tiawl/glfw.zig][3] compilation. But you could use it for your own projects. Headers are here and there are no planned evolution to modify them. See [tiawl/glfw.zig][3] to see how you can use it.
+
+## Dependencies
+
+The [Zig][3] part of this package is relying on the latest [Zig][3] release (0.12.0) and will only be updated for the next one (so for the 0.13.0).
+
 Here the repositories' version used by this fork:
 * [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
 
