@@ -21,7 +21,7 @@ The current usage of this repository is centered around [tiawl/glfw.zig][3] comp
 The [Zig][3] part of this package is relying on the latest [Zig][3] release (0.12.0) and will only be updated for the next one (so for the 0.13.0).
 
 Here the repositories' version used by this fork:
-* [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.versions/vulkan)
+* [KhronosGroup/Vulkan-Headers](https://github.com/tiawl/vulkan.zig/blob/trunk/.references/vulkan)
 
 ## CICD reminder
 
@@ -40,7 +40,7 @@ This repository is automatically updated when a new release is available from th
 
 These additional options have been implemented for maintainability tasks:
 ```
-  -Dfetch   Update .versions folder and build.zig.zon then stop execution
+  -Dfetch   Update .references folder and build.zig.zon then stop execution
   -Dupdate  Update binding
 ```
 
