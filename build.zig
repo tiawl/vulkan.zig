@@ -10,26 +10,22 @@ fn update(toolbox: *Toolbox, vulkan_path: []const u8) !void {
         tmp_path, "include",
     });
 
-    std.fs.deleteTreeAbsolute(vulkan_path) catch |err| {
-        switch (err) {
-            error.FileNotFound => {},
-            else => return err,
-        }
-    };
+    std.debug.assert(std.fs.path.isAbsolute(vulkan_path));
+    try std.Io.Dir.deleteTree(.cwd(), toolbox.getIo(), vulkan_path);
 
     try toolbox.clone(.vulkan, tmp_path);
 
-    var include_dir = try std.fs.openDirAbsolute(include_path, .{
+    var include_dir = try std.Io.Dir.openDirAbsolute(toolbox.getIo(), include_path, .{
         .iterate = true,
     });
-    defer include_dir.close();
+    defer include_dir.close(toolbox.getIo());
 
     var walker = try include_dir.walk(toolbox.getAllocator());
     defer walker.deinit();
 
     try toolbox.make(vulkan_path);
 
-    while (try walker.next()) |*entry| {
+    while (try walker.next(toolbox.getIo())) |*entry| {
         const dest = toolbox.pathJoin(&.{
             vulkan_path, entry.path,
         });
@@ -42,7 +38,8 @@ fn update(toolbox: *Toolbox, vulkan_path: []const u8) !void {
         }
     }
 
-    try std.fs.deleteTreeAbsolute(tmp_path);
+    std.debug.assert(std.fs.path.isAbsolute(tmp_path));
+    try std.Io.Dir.deleteTree(.cwd(), toolbox.getIo(), tmp_path);
 
     try toolbox.clean(&.{
         "vulkan",
@@ -95,13 +92,13 @@ pub fn build(builder: *std.Build) !void {
         }),
     });
 
-    var vulkan_dir = try std.fs.openDirAbsolute(vulkan_path, .{
+    var vulkan_dir = try std.Io.Dir.openDirAbsolute(toolbox.getIo(), vulkan_path, .{
         .iterate = true,
     });
-    defer vulkan_dir.close();
+    defer vulkan_dir.close(toolbox.getIo());
 
     var it = vulkan_dir.iterate();
-    while (try it.next()) |*entry| {
+    while (try it.next(toolbox.getIo())) |*entry| {
         if (entry.kind == .directory) {
             toolbox.addHeader(lib, builder.pathJoin(&.{
                 vulkan_path, entry.name,
