@@ -186352,6 +186352,163 @@ namespace VULKAN_HPP_NAMESPACE
   };
 #endif
 
+#if defined( VK_USE_PLATFORM_UBM_SEC )
+  // wrapper struct for struct VkUbmSurfaceCreateInfoSEC, see https://registry.khronos.org/vulkan/specs/latest/man/html/VkUbmSurfaceCreateInfoSEC.html
+  struct UbmSurfaceCreateInfoSEC
+  {
+    using NativeType = VkUbmSurfaceCreateInfoSEC;
+
+    static const bool                                  allowDuplicate = false;
+    static VULKAN_HPP_CONST_OR_CONSTEXPR StructureType structureType  = StructureType::eUbmSurfaceCreateInfoSEC;
+
+#  if !defined( VULKAN_HPP_NO_CONSTRUCTORS ) && !defined( VULKAN_HPP_NO_STRUCT_CONSTRUCTORS )
+    VULKAN_HPP_CONSTEXPR UbmSurfaceCreateInfoSEC( UbmSurfaceCreateFlagsSEC flags_       = {},
+                                                  struct ubm_device *      ubm_device_  = {},
+                                                  struct ubm_surface *     ubm_surface_ = {},
+                                                  const void *             pNext_       = nullptr ) VULKAN_HPP_NOEXCEPT
+      : pNext{ pNext_ }
+      , flags{ flags_ }
+      , ubm_device{ ubm_device_ }
+      , ubm_surface{ ubm_surface_ }
+    {
+    }
+
+    VULKAN_HPP_CONSTEXPR UbmSurfaceCreateInfoSEC( UbmSurfaceCreateInfoSEC const & rhs ) VULKAN_HPP_NOEXCEPT = default;
+
+    UbmSurfaceCreateInfoSEC( VkUbmSurfaceCreateInfoSEC const & rhs ) VULKAN_HPP_NOEXCEPT
+      : UbmSurfaceCreateInfoSEC( *reinterpret_cast<UbmSurfaceCreateInfoSEC const *>( &rhs ) )
+    {
+    }
+
+    UbmSurfaceCreateInfoSEC & operator=( UbmSurfaceCreateInfoSEC const & rhs ) VULKAN_HPP_NOEXCEPT = default;
+#  endif /*VULKAN_HPP_NO_CONSTRUCTORS*/
+
+    UbmSurfaceCreateInfoSEC & operator=( VkUbmSurfaceCreateInfoSEC const & rhs ) VULKAN_HPP_NOEXCEPT
+    {
+      *this = *reinterpret_cast<UbmSurfaceCreateInfoSEC const *>( &rhs );
+      return *this;
+    }
+
+#  if !defined( VULKAN_HPP_NO_SETTERS ) && !defined( VULKAN_HPP_NO_STRUCT_SETTERS )
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC & setPNext( const void * pNext_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      pNext = pNext_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC && setPNext( const void * pNext_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      pNext = pNext_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC & setFlags( UbmSurfaceCreateFlagsSEC flags_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      flags = flags_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC && setFlags( UbmSurfaceCreateFlagsSEC flags_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      flags = flags_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC & setUbm_device( struct ubm_device * ubm_device_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      ubm_device = ubm_device_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC && setUbm_device( struct ubm_device * ubm_device_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      ubm_device = ubm_device_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC & setUbm_surface( struct ubm_surface * ubm_surface_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      ubm_surface = ubm_surface_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 UbmSurfaceCreateInfoSEC && setUbm_surface( struct ubm_surface * ubm_surface_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      ubm_surface = ubm_surface_;
+      return std::move( *this );
+    }
+#  endif /*VULKAN_HPP_NO_SETTERS*/
+
+    operator VkUbmSurfaceCreateInfoSEC const &() const VULKAN_HPP_NOEXCEPT
+    {
+      return *reinterpret_cast<const VkUbmSurfaceCreateInfoSEC *>( this );
+    }
+
+    operator VkUbmSurfaceCreateInfoSEC &() VULKAN_HPP_NOEXCEPT
+    {
+      return *reinterpret_cast<VkUbmSurfaceCreateInfoSEC *>( this );
+    }
+
+    operator VkUbmSurfaceCreateInfoSEC const *() const VULKAN_HPP_NOEXCEPT
+    {
+      return reinterpret_cast<const VkUbmSurfaceCreateInfoSEC *>( this );
+    }
+
+    operator VkUbmSurfaceCreateInfoSEC *() VULKAN_HPP_NOEXCEPT
+    {
+      return reinterpret_cast<VkUbmSurfaceCreateInfoSEC *>( this );
+    }
+
+#  if defined( VULKAN_HPP_USE_REFLECT )
+    std::tuple<StructureType const &, const void * const &, UbmSurfaceCreateFlagsSEC const &, struct ubm_device * const &, struct ubm_surface * const &>
+      reflect() const VULKAN_HPP_NOEXCEPT
+    {
+      return std::tie( sType, pNext, flags, ubm_device, ubm_surface );
+    }
+#  endif
+
+#  if defined( VULKAN_HPP_HAS_SPACESHIP_OPERATOR )
+    auto operator<=>( UbmSurfaceCreateInfoSEC const & ) const = default;
+#  else
+    bool operator==( UbmSurfaceCreateInfoSEC const & rhs ) const VULKAN_HPP_NOEXCEPT
+    {
+#    if defined( VULKAN_HPP_USE_REFLECT )
+      return this->reflect() == rhs.reflect();
+#    else
+      return ( sType == rhs.sType ) && ( pNext == rhs.pNext ) && ( flags == rhs.flags ) && ( ubm_device == rhs.ubm_device ) &&
+             ( ubm_surface == rhs.ubm_surface );
+#    endif
+    }
+
+    bool operator!=( UbmSurfaceCreateInfoSEC const & rhs ) const VULKAN_HPP_NOEXCEPT
+    {
+      return !operator==( rhs );
+    }
+#  endif
+
+  public:
+    StructureType            sType       = StructureType::eUbmSurfaceCreateInfoSEC;
+    const void *             pNext       = {};
+    UbmSurfaceCreateFlagsSEC flags       = {};
+    struct ubm_device *      ubm_device  = {};
+    struct ubm_surface *     ubm_surface = {};
+  };
+
+#  if 20 <= VULKAN_HPP_CPP_VERSION
+  template <>
+  struct CppType<VkUbmSurfaceCreateInfoSEC>
+  {
+    using Type = UbmSurfaceCreateInfoSEC;
+  };
+#  endif
+
+  template <>
+  struct CppType<StructureType, StructureType::eUbmSurfaceCreateInfoSEC>
+  {
+    using Type = UbmSurfaceCreateInfoSEC;
+  };
+#endif /*VK_USE_PLATFORM_UBM_SEC*/
+
   // wrapper struct for struct VkValidationCacheCreateInfoEXT, see https://registry.khronos.org/vulkan/specs/latest/man/html/VkValidationCacheCreateInfoEXT.html
   struct ValidationCacheCreateInfoEXT
   {
