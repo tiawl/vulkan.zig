@@ -74,10 +74,6 @@ jobs:
           - ubuntu-24.04
           - windows-2025
           - macos-15
-        exclude: #https://codeberg.org/ziglang/translate-c/issues/346
-          - repo: cimgui
-            zig-version: master
-            os: windows-2025
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v6
