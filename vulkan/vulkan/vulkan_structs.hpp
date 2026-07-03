@@ -148244,6 +148244,180 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     using Type = PhysicalDeviceShaderMultipleWaitQueuesPropertiesQCOM;
   };
 
+  // wrapper struct for struct VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT, see
+  // https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT.html
+  struct PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT
+  {
+    using NativeType = VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT;
+
+    static bool const                                  allowDuplicate = false;
+    static VULKAN_HPP_CONST_OR_CONSTEXPR StructureType structureType  = StructureType::ePhysicalDeviceShaderOcpMicroscalingTypesFeaturesEXT;
+
+#if !defined( VULKAN_HPP_NO_CONSTRUCTORS ) && !defined( VULKAN_HPP_NO_STRUCT_CONSTRUCTORS )
+    VULKAN_HPP_CONSTEXPR PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT( Bool32 shaderFloat4_             = {},
+                                                                              Bool32 shaderFloat6_             = {},
+                                                                              Bool32 shaderFloat8UnsignedE8M0_ = {},
+                                                                              Bool32 shaderMXInt8_             = {},
+                                                                              void * pNext_                    = nullptr ) VULKAN_HPP_NOEXCEPT
+      : pNext{ pNext_ }
+      , shaderFloat4{ shaderFloat4_ }
+      , shaderFloat6{ shaderFloat6_ }
+      , shaderFloat8UnsignedE8M0{ shaderFloat8UnsignedE8M0_ }
+      , shaderMXInt8{ shaderMXInt8_ }
+    {
+    }
+
+    VULKAN_HPP_CONSTEXPR
+      PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT( PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) VULKAN_HPP_NOEXCEPT = default;
+
+    PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT( VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) VULKAN_HPP_NOEXCEPT
+      : PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT( *reinterpret_cast<PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const *>( &rhs ) )
+    {
+    }
+
+    PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT &
+      operator=( PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) VULKAN_HPP_NOEXCEPT = default;
+#endif /*VULKAN_HPP_NO_CONSTRUCTORS*/
+
+    PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & operator=( VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) VULKAN_HPP_NOEXCEPT
+    {
+      *this = *reinterpret_cast<PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const *>( &rhs );
+      return *this;
+    }
+
+#if !defined( VULKAN_HPP_NO_SETTERS ) && !defined( VULKAN_HPP_NO_STRUCT_SETTERS )
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & setPNext( void * pNext_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      pNext = pNext_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT && setPNext( void * pNext_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      pNext = pNext_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & setShaderFloat4( Bool32 shaderFloat4_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat4 = shaderFloat4_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT && setShaderFloat4( Bool32 shaderFloat4_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat4 = shaderFloat4_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & setShaderFloat6( Bool32 shaderFloat6_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat6 = shaderFloat6_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT && setShaderFloat6( Bool32 shaderFloat6_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat6 = shaderFloat6_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & setShaderFloat8UnsignedE8M0( Bool32 shaderFloat8UnsignedE8M0_ ) &
+      VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat8UnsignedE8M0 = shaderFloat8UnsignedE8M0_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT && setShaderFloat8UnsignedE8M0( Bool32 shaderFloat8UnsignedE8M0_ ) &&
+      VULKAN_HPP_NOEXCEPT
+    {
+      shaderFloat8UnsignedE8M0 = shaderFloat8UnsignedE8M0_;
+      return std::move( *this );
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT & setShaderMXInt8( Bool32 shaderMXInt8_ ) & VULKAN_HPP_NOEXCEPT
+    {
+      shaderMXInt8 = shaderMXInt8_;
+      return *this;
+    }
+
+    VULKAN_HPP_CONSTEXPR_14 PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT && setShaderMXInt8( Bool32 shaderMXInt8_ ) && VULKAN_HPP_NOEXCEPT
+    {
+      shaderMXInt8 = shaderMXInt8_;
+      return std::move( *this );
+    }
+#endif /*VULKAN_HPP_NO_SETTERS*/
+
+    operator VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const &() const VULKAN_HPP_NOEXCEPT
+    {
+      return *reinterpret_cast<VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const *>( this );
+    }
+
+    operator VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT &() VULKAN_HPP_NOEXCEPT
+    {
+      return *reinterpret_cast<VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT *>( this );
+    }
+
+    operator VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const *() const VULKAN_HPP_NOEXCEPT
+    {
+      return reinterpret_cast<VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const *>( this );
+    }
+
+    operator VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT *() VULKAN_HPP_NOEXCEPT
+    {
+      return reinterpret_cast<VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT *>( this );
+    }
+
+#if defined( VULKAN_HPP_USE_REFLECT )
+    std::tuple<StructureType const &, void * const &, Bool32 const &, Bool32 const &, Bool32 const &, Bool32 const &> reflect() const VULKAN_HPP_NOEXCEPT
+    {
+      return std::tie( sType, pNext, shaderFloat4, shaderFloat6, shaderFloat8UnsignedE8M0, shaderMXInt8 );
+    }
+#endif
+
+#if defined( VULKAN_HPP_HAS_SPACESHIP_OPERATOR )
+    auto operator<=>( PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & ) const = default;
+#else
+    bool operator==( PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) const VULKAN_HPP_NOEXCEPT
+    {
+#  if defined( VULKAN_HPP_USE_REFLECT )
+      return this->reflect() == rhs.reflect();
+#  else
+      return ( sType == rhs.sType ) && ( pNext == rhs.pNext ) && ( shaderFloat4 == rhs.shaderFloat4 ) && ( shaderFloat6 == rhs.shaderFloat6 ) &&
+             ( shaderFloat8UnsignedE8M0 == rhs.shaderFloat8UnsignedE8M0 ) && ( shaderMXInt8 == rhs.shaderMXInt8 );
+#  endif
+    }
+
+    bool operator!=( PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT const & rhs ) const VULKAN_HPP_NOEXCEPT
+    {
+      return !operator==( rhs );
+    }
+#endif
+
+  public:
+    StructureType sType                    = StructureType::ePhysicalDeviceShaderOcpMicroscalingTypesFeaturesEXT;
+    void *        pNext                    = {};
+    Bool32        shaderFloat4             = {};
+    Bool32        shaderFloat6             = {};
+    Bool32        shaderFloat8UnsignedE8M0 = {};
+    Bool32        shaderMXInt8             = {};
+  };
+
+#if 20 <= VULKAN_HPP_CPP_VERSION
+  template <>
+  struct CppType<VkPhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT>
+  {
+    using Type = PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT;
+  };
+#endif
+
+  template <>
+  struct CppType<StructureType, StructureType::ePhysicalDeviceShaderOcpMicroscalingTypesFeaturesEXT>
+  {
+    using Type = PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT;
+  };
+
   // wrapper struct for struct VkPhysicalDeviceShaderObjectFeaturesEXT, see
   // https://registry.khronos.org/vulkan/specs/latest/man/html/VkPhysicalDeviceShaderObjectFeaturesEXT.html
   struct PhysicalDeviceShaderObjectFeaturesEXT
