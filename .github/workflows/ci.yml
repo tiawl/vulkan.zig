@@ -1,5 +1,8 @@
 name: ci
 
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
 on:
   pull_request:
     branches:
@@ -120,10 +123,11 @@ jobs:
       - name: Test ${{ matrix.repo }}.zig examples
         env:
           REPO: "${{ matrix.repo }}"
+          ZIG_VERSION: "${{ matrix.zig-version }}"
         shell: 'bash'
         run: |
           set -x
-          case "${REPO}" in
-          ( 'cimgui' ) env -C ./examples zig build ;;
+          case "${REPO} ${ZIG_VERSION}" in
+          ( 'cimgui master' ) env -C ./examples zig build ;;
           ( * ) ;;
           esac
