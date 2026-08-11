@@ -62,7 +62,7 @@ jobs:
 
       - name: Test updating
         shell: 'bash'
-        run: zig build -Dupdate -Dverbose
+        run: zig build -Dupdate -Dverbose -freference-trace
 
   user:
     strategy:
@@ -117,10 +117,10 @@ jobs:
           set -x
           case "${REPO}" in
           ( 'cimgui' )
-            platforms="$(zig build -Dlist-platforms -Dseparator=,)"
+            platforms="$(zig build -Dlist-platforms -Dseparator=, -freference-trace)"
             platforms="${platforms:+"-Dplatforms={${platforms}}"}"
-            eval "zig build -Dverbose -Drenderers=Vulkan ${platforms}" ;;
-          ( * ) zig build -Dverbose ;;
+            eval "zig build -Dverbose -Drenderers=Vulkan ${platforms} -freference-trace" ;;
+          ( * ) zig build -Dverbose -freference-trace ;;
           esac
 
       - name: Test ${{ matrix.repo }}.zig examples
@@ -131,6 +131,6 @@ jobs:
         run: |
           set -x
           case "${REPO} ${ZIG_VERSION}" in
-          ( 'cimgui master' ) env -C ./examples zig build ;;
+          ( 'cimgui master' ) env -C ./examples zig build -freference-trace ;;
           ( * ) ;;
           esac
