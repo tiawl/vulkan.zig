@@ -3,8 +3,8 @@
     .version = "1.0.0",
     .dependencies = .{
         .@"Vulkan-Headers" = .{
-            .url = "git+https://github.com/KhronosGroup/Vulkan-Headers?ref=v1.4.359#f9973cd97e6f3584707e7ef1c425e336f1b92a5b",
-            .hash = "N-V-__8AAMgnfgKxQBLuasOmdRqVVIc1HwfkjIUSwaryYgzo",
+            .url = "git+https://github.com/KhronosGroup/Vulkan-Headers?ref=v1.4.360#0b7f383797fa7be53ae28213e001ae60668ee511",
+            .hash = "N-V-__8AAGk0fgIJGhaaZodQ67JndNtYhnjce2aC8iNvzq0r",
         },
         .toolbox = .{
             .url = "git+https://github.com/tiawl/toolbox?ref=2.2.2#495cff38194c12eaced6e51b4dd51ff2288594f6",
