@@ -119,7 +119,7 @@ jobs:
           ( 'cimgui' )
             platforms="$(zig build -Dlist-platforms -Dseparator=, -freference-trace --verbose)"
             platforms="${platforms:+"-Dplatforms={${platforms}}"}"
-            eval "zig build -Dverbose -Drenderers=Vulkan ${platforms} -freference-trace --verbose" ;;
+            eval "zig build -Dverbose -Drenderers=vulkan ${platforms} -freference-trace --verbose" ;;
           ( * ) zig build -Dverbose -freference-trace --verbose ;;
           esac
 
