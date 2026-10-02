@@ -84,6 +84,8 @@ jobs:
           # TODO: fail unexpectedly with an "Out of memory" error
           - os: windows-2025
             repo: cimgui
+          # TODO: fail unexpectedly with a SEGV
+          - os: macos-15
     runs-on: "${{ matrix.os }}"
     steps:
       - uses: actions/checkout@v6
