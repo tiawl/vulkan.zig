@@ -14,7 +14,7 @@ However this repository has subtle differences for maintainability tasks:
 
 ## Dependencies
 
-The [Zig][3] part of this package requires the latest (0.16.0) or the master (0.17.0-dev) [Zig][3] release.
+The [Zig][3] part of this package requires the latest (0.17.0) or the master (0.18.0-dev) [Zig][3] release.
 
 For other dependencies see [the build.zig.zon](https://github.com/tiawl/vulkan.zig/blob/stable/build.zig.zon)
 
