@@ -7,7 +7,7 @@ fn updateFn(pkg_builder: *VerboseBuilder) !void {
     try pkg_builder.remove(&.{"vulkan"});
     try pkg_builder.make(&.{"vulkan"});
 
-    const vulkan_headers_dep = pkg_builder.verboseDependency("Vulkan-Headers");
+    const vulkan_headers_dep = pkg_builder.verboseDependency("Vulkan-Headers", pkg_builder.getOptimize(), pkg_builder.getTarget());
     var vulkan_headers_builder = VerboseBuilder.initFromDependency(vulkan_headers_dep);
 
     while (try vulkan_headers_builder.walk(&.{"include"})) |entry| {
@@ -27,7 +27,7 @@ fn updateFn(pkg_builder: *VerboseBuilder) !void {
 }
 
 fn buildFn(pkg_builder: *VerboseBuilder) !void {
-    const lib = pkg_builder.addLibrary("vulkan");
+    const lib = pkg_builder.addLibrary("vulkan", pkg_builder.getOptimize(), pkg_builder.getTarget());
 
     while (try pkg_builder.walk(&.{"vulkan"})) |*entry| {
         if (toolbox.isCHeader(entry.basename)) pkg_builder.installHeader(lib, &.{ "vulkan", entry.path }, &.{entry.path});
