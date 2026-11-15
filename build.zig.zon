@@ -1,6 +1,6 @@
 .{
     .name = .vulkan_zig,
-    .version = "1.0.2",
+    .version = "1.0.3",
     .dependencies = .{
         .@"Vulkan-Headers" = .{
             .url = "git+https://github.com/KhronosGroup/Vulkan-Headers?ref=v1.4.367#9fbc2a782ee3f8a4db64e7d991e23da75e893f44",
