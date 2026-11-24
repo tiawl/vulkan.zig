@@ -23286,6 +23286,26 @@ VULKAN_HPP_EXPORT namespace std
     }
   };
 
+#  if defined( VK_ENABLE_BETA_EXTENSIONS )
+  //=== VK_AMDX_multi_level_acceleration_structure ===
+
+#    if defined( VK_ENABLE_BETA_EXTENSIONS )
+  template <>
+  struct hash<VULKAN_HPP_NAMESPACE::PhysicalDeviceMultiLevelAccelerationStructureFeaturesAMDX>
+  {
+    std::size_t operator()( VULKAN_HPP_NAMESPACE::PhysicalDeviceMultiLevelAccelerationStructureFeaturesAMDX const &
+                              physicalDeviceMultiLevelAccelerationStructureFeaturesAMDX ) const VULKAN_HPP_NOEXCEPT
+    {
+      std::size_t seed = 0;
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceMultiLevelAccelerationStructureFeaturesAMDX.sType );
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceMultiLevelAccelerationStructureFeaturesAMDX.pNext );
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceMultiLevelAccelerationStructureFeaturesAMDX.multiLevelAccelerationStructure );
+      return seed;
+    }
+  };
+#    endif /*VK_ENABLE_BETA_EXTENSIONS*/
+#  endif   /*VK_ENABLE_BETA_EXTENSIONS*/
+
   //=== VK_KHR_maintenance11 ===
 
   template <>
@@ -23646,6 +23666,22 @@ VULKAN_HPP_EXPORT namespace std
       VULKAN_HPP_HASH_COMBINE( seed, physicalDevicePrimitiveRestartIndexFeaturesEXT.sType );
       VULKAN_HPP_HASH_COMBINE( seed, physicalDevicePrimitiveRestartIndexFeaturesEXT.pNext );
       VULKAN_HPP_HASH_COMBINE( seed, physicalDevicePrimitiveRestartIndexFeaturesEXT.primitiveRestartIndex );
+      return seed;
+    }
+  };
+
+  //=== VK_EXT_vertex_address_binding_unrestricted ===
+
+  template <>
+  struct hash<VULKAN_HPP_NAMESPACE::PhysicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT>
+  {
+    std::size_t operator()( VULKAN_HPP_NAMESPACE::PhysicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT const &
+                              physicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT ) const VULKAN_HPP_NOEXCEPT
+    {
+      std::size_t seed = 0;
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT.sType );
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT.pNext );
+      VULKAN_HPP_HASH_COMBINE( seed, physicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT.vertexAddressBindingUnrestricted );
       return seed;
     }
   };

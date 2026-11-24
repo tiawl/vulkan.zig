@@ -1865,14 +1865,17 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     ePhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT,
     eComputeOccupancyPriorityParametersNV                     = VK_STRUCTURE_TYPE_COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV,
     ePhysicalDeviceComputeOccupancyPriorityFeaturesNV         = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV,
-    ePhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR     = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_KHR,
-    ePhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT     = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT,
-    ePhysicalDeviceMaintenance11FeaturesKHR                   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_11_FEATURES_KHR,
-    eQueueFamilyOptimalImageTransferGranularityPropertiesKHR  = VK_STRUCTURE_TYPE_QUEUE_FAMILY_OPTIMAL_IMAGE_TRANSFER_GRANULARITY_PROPERTIES_KHR,
-    ePhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_MAINTENANCE_1_FEATURES_EXT,
-    ePhysicalDeviceCooperativeMatrixInfo2EXT                  = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_INFO_2_EXT,
-    eCooperativeMatrixProperties2EXT                          = VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_2_EXT,
-    ePhysicalDeviceShaderSubgroupPartitionedFeaturesEXT       = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT,
+#if defined( VK_ENABLE_BETA_EXTENSIONS )
+    ePhysicalDeviceMultiLevelAccelerationStructureFeaturesAMDX = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_LEVEL_ACCELERATION_STRUCTURE_FEATURES_AMDX,
+#endif /*VK_ENABLE_BETA_EXTENSIONS*/
+    ePhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR    = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_KHR,
+    ePhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT    = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT,
+    ePhysicalDeviceMaintenance11FeaturesKHR                  = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_11_FEATURES_KHR,
+    eQueueFamilyOptimalImageTransferGranularityPropertiesKHR = VK_STRUCTURE_TYPE_QUEUE_FAMILY_OPTIMAL_IMAGE_TRANSFER_GRANULARITY_PROPERTIES_KHR,
+    ePhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT  = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_MAINTENANCE_1_FEATURES_EXT,
+    ePhysicalDeviceCooperativeMatrixInfo2EXT                 = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_INFO_2_EXT,
+    eCooperativeMatrixProperties2EXT                         = VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_2_EXT,
+    ePhysicalDeviceShaderSubgroupPartitionedFeaturesEXT      = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT,
 #if defined( VK_USE_PLATFORM_UBM_SEC )
     eUbmSurfaceCreateInfoSEC = VK_STRUCTURE_TYPE_UBM_SURFACE_CREATE_INFO_SEC,
 #endif /*VK_USE_PLATFORM_UBM_SEC*/
@@ -1892,6 +1895,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     eDataGraphPipelineSessionNeuralStatisticsCreateInfoARM         = VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_NEURAL_STATISTICS_CREATE_INFO_ARM,
     ePhysicalDeviceDataGraphNeuralAcceleratorStatisticsFeaturesARM = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_NEURAL_ACCELERATOR_STATISTICS_FEATURES_ARM,
     ePhysicalDevicePrimitiveRestartIndexFeaturesEXT                = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_RESTART_INDEX_FEATURES_EXT,
+    ePhysicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT     = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ADDRESS_BINDING_UNRESTRICTED_FEATURES_EXT,
     ePhysicalDeviceMaintenance12FeaturesKHR                        = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_12_FEATURES_KHR,
     ePhysicalDeviceMaintenance12PropertiesKHR                      = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_12_PROPERTIES_KHR,
     ePhysicalDeviceImageTilingControlFeaturesEXT                   = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_TILING_CONTROL_FEATURES_EXT,
@@ -5820,7 +5824,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     eRayTracingOpacityMicromapKHR                = VK_PIPELINE_CREATE_2_RAY_TRACING_OPACITY_MICROMAP_BIT_KHR,
     eRayTracingOpacityMicromapEXT                = VK_PIPELINE_CREATE_2_RAY_TRACING_OPACITY_MICROMAP_BIT_EXT,
     eOpacityMicromapDisallowMixedSpecialIndexKHR = VK_PIPELINE_CREATE_2_OPACITY_MICROMAP_DISALLOW_MIXED_SPECIAL_INDEX_BIT_KHR,
-    e64BitIndexingEXT                            = VK_PIPELINE_CREATE_2_64_BIT_INDEXING_BIT_EXT
+    e64BitIndexingEXT                            = VK_PIPELINE_CREATE_2_64_BIT_INDEXING_BIT_EXT,
+#if defined( VK_ENABLE_BETA_EXTENSIONS )
+    eRayTracingAllowMultiLevelAccelerationStructuresAMDX = VK_PIPELINE_CREATE_2_RAY_TRACING_ALLOW_MULTI_LEVEL_ACCELERATION_STRUCTURES_BIT_AMDX
+#endif /*VK_ENABLE_BETA_EXTENSIONS*/
   };
 
   using PipelineCreateFlagBits2KHR = PipelineCreateFlagBits2;
@@ -5858,7 +5865,11 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       | PipelineCreateFlagBits2::eDescriptorBufferEXT | PipelineCreateFlagBits2::eDisallowOpacityMicromapARM | PipelineCreateFlagBits2::eInstrumentShadersARM |
       PipelineCreateFlagBits2::eCaptureDataKHR | PipelineCreateFlagBits2::eIndirectBindableEXT | PipelineCreateFlagBits2::ePerLayerFragmentDensityVALVE |
       PipelineCreateFlagBits2::eRayTracingOpacityMicromapKHR | PipelineCreateFlagBits2::eOpacityMicromapDisallowMixedSpecialIndexKHR |
-      PipelineCreateFlagBits2::e64BitIndexingEXT;
+      PipelineCreateFlagBits2::e64BitIndexingEXT
+#if defined( VK_ENABLE_BETA_EXTENSIONS )
+      | PipelineCreateFlagBits2::eRayTracingAllowMultiLevelAccelerationStructuresAMDX
+#endif /*VK_ENABLE_BETA_EXTENSIONS*/
+      ;
   };
 
   // wrapper class for enum VkLineRasterizationMode, see https://registry.khronos.org/vulkan/specs/latest/man/html/VkLineRasterizationMode.html
@@ -7509,7 +7520,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     eBottomLevel     = VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR,
     eBottomLevelNV   = VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_NV,
     eGeneric         = VK_ACCELERATION_STRUCTURE_TYPE_GENERIC_KHR,
-    eOpacityMicromap = VK_ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR
+    eOpacityMicromap = VK_ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_KHR,
+#if defined( VK_ENABLE_BETA_EXTENSIONS )
+    eMidLevelAMDX = VK_ACCELERATION_STRUCTURE_TYPE_MID_LEVEL_AMDX
+#endif /*VK_ENABLE_BETA_EXTENSIONS*/
   };
 
   using AccelerationStructureTypeNV = AccelerationStructureTypeKHR;
